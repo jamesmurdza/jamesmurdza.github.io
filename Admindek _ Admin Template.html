@@ -1480,7 +1480,26 @@
                                                         <h5>Deals Analytics</h5>
                                                     </div><div class="card-body">
                                                         <div class="row align-items-center">
-                                                            <!-- <iframe frameborder="1" allowpaymentrequest="" allowfullscreen="allowfullscreen" src="./Admindek _ Admin Template_files/saved_resource(2).html" height="500" width="100%"></iframe>-->                           </div>
+<div id="photosphere" style="height:300px; width:100%"></div>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.1.3/dist/polyfill.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uevent@2.0.0/browser.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.115.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.css" />
+      <script type="text/javascript">
+new PhotoSphereViewer.Viewer({
+  panorama: 'https://photo-sphere-viewer.js.org/assets/sphere.jpg',
+  container: 'photosphere',
+  caption: 'Parc national du Mercantour <b>&copy; Damien Sorel</b>',
+  loadingImg: 'https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif',
+  navbar: 'autorotate zoom download caption fullscreen',
+  defaultLat: 0.3,
+  mousewheel: false,
+  touchmoveTwoFingers: true,
+});
+      </script>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                                 
@@ -1549,7 +1568,58 @@
                                                         <h5>Deals Analytics</h5>
                                                     </div>
                                                     <div class="card-block">
-                                                        <!--<iframe width="100%" height="500" src="./Admindek _ Admin Template_files/saved_resource(3).html" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></iframe>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
+<style>
+#scroll {
+    width: 100%;
+    height: 400px;
+    overflow:hidden;
+}
+.blue {
+/*    width: 1500px;*/
+}
+</style>
+<div id="scroll">
+    <img class="blue" src="Map.jpg" />
+</div>
+    <script>
+        var clicking = false;
+var previousX;
+var previousY;
+
+$("#scroll").mousedown(function(e) {
+    e.preventDefault();
+    previousX = e.clientX;
+    previousY = e.clientY;
+    clicking = true;
+});
+
+$(document).mouseup(function() {
+      
+    clicking = false;
+});
+
+$("#scroll").mousemove(function(e) {
+
+    if (clicking) {
+        e.preventDefault();
+        var directionX = (previousX - e.clientX) > 0 ? 1 : -1;
+        var directionY = (previousY - e.clientY) > 0 ? 1 : -1;
+        //$("#scroll").scrollLeft($("#scroll").scrollLeft() + 10 * directionX);
+        //$("#scroll").scrollTop($("#scroll").scrollTop() + 10 * directionY);
+        $("#scroll").scrollLeft($("#scroll").scrollLeft() + (previousX - e.clientX));
+        $("#scroll").scrollTop($("#scroll").scrollTop() + (previousY - e.clientY));
+        previousX = e.clientX;
+        previousY = e.clientY;
+    }
+});
+
+
+
+$("#scroll").mouseleave(function(e) {
+    clicking = false;
+});
+    </script>
                                                     </div>
                                                 </div>
                                             </div><!-- sale 2 card end -->
