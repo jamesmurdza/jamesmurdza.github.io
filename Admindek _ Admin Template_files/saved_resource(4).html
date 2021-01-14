@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)https://jsfiddle.net/ashkyd/uos4nbfs/embedded/ -->
+<!-- saved from url=(0049)https://jsfiddle.net/mistic100/5r684etx/embedded/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     
     <meta http-equiv="edit-Type" edit="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Google Maps Embed - JSFiddle</title>
+    <title>PSV Home Demo - JSFiddle</title>
 
       <meta name="robots" content="index, follow">
       <meta name="googlebot" content="index, follow">
@@ -13,10 +13,10 @@
       <script type="text/javascript">
         var height
         var force_height = null
-        var slug = "uos4nbfs"
-        var show_src = "//fiddle.jshell.net/ashkyd/uos4nbfs/show/light/"
+        var slug = "5r684etx"
+        var show_src = "//fiddle.jshell.net/mistic100/5r684etx/show/light/"
         var resize_element_counter = 0
-        var shell_edit_url = "/ashkyd/uos4nbfs/light/"
+        var shell_edit_url = "/mistic100/5r684etx/light/"
 
       </script>
 
@@ -32,7 +32,7 @@
     <div id="full-embed">
         <header>
           <h1>
-            <a href="https://jsfiddle.net/ashkyd/uos4nbfs/" target="_blank">
+            <a href="https://jsfiddle.net/mistic100/5r684etx/" target="_blank">
               <svg width="34" height="40">
       <use xlink:href="//jsfiddle.net/sprite.svg#logo"></use>
     </svg>Edit in JSFiddle
@@ -41,34 +41,54 @@
           <div id="actions">
             <ul class="normalRes">
                 <li class="">
-                  <a data-trigger-type="js" href="https://jsfiddle.net/ashkyd/uos4nbfs/embedded/#JavaScript">JavaScript</a>
+                  <a data-trigger-type="js" href="https://jsfiddle.net/mistic100/5r684etx/embedded/#JavaScript">JavaScript</a>
                 </li>
                 <li class="">
-                  <a data-trigger-type="html" href="https://jsfiddle.net/ashkyd/uos4nbfs/embedded/#HTML">HTML</a>
+                  <a data-trigger-type="html" href="https://jsfiddle.net/mistic100/5r684etx/embedded/#HTML">HTML</a>
                 </li>
                 <li class="">
-                  <a data-trigger-type="css" href="https://jsfiddle.net/ashkyd/uos4nbfs/embedded/#CSS">CSS</a>
+                  <a data-trigger-type="css" href="https://jsfiddle.net/mistic100/5r684etx/embedded/#CSS">CSS</a>
                 </li>
                 <li class="active">
-                  <a data-trigger-type="result" href="https://jsfiddle.net/ashkyd/uos4nbfs/embedded/#Result">Result</a>
+                  <a data-trigger-type="result" href="https://jsfiddle.net/mistic100/5r684etx/embedded/#Result">Result</a>
+                </li>
+                <li class="">
+                  <a data-trigger-type="resources" href="https://jsfiddle.net/mistic100/5r684etx/embedded/#Resources">Resources</a>
                 </li>
             </ul>
-            <div class="hl animated" style="left: 198.625px; width: 61.8125px;"></div>
+            <div class="hl animated" style="left: 200.227px; width: 62.3672px;"></div>
           </div>
         </header>
 
         <div id="tabs">
-              <pre class="tCont JavaScript hljs"><span class="hljs-built_in">window</span>.resize = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-    <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">'iframe'</span>)[<span class="hljs-number">0</span>].height = <span class="hljs-built_in">window</span>.innerHeight;
-}
-
-<span class="hljs-built_in">window</span>.resize();
-</pre>
-              <pre class="tCont HTML hljs"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3539.4627934957675!2d152.99274591036206!3d-27.48597916947509!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sau!4v1417403007476"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"600"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"450"</span> <span class="hljs-attr">frameborder</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"border:0"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span></pre>
-              <pre class="tCont CSS hljs">*{<span class="hljs-attribute">margin</span>:<span class="hljs-number">0</span>;<span class="hljs-attribute">padding</span>:<span class="hljs-number">0</span>;<span class="hljs-attribute">border</span>:<span class="hljs-number">0</span>;}
-<span class="hljs-selector-tag">iframe</span>{<span class="hljs-attribute">width</span>:<span class="hljs-number">100%</span>;}</pre>
+              <pre class="tCont JavaScript hljs"><span class="hljs-keyword">new</span> PhotoSphereViewer.Viewer({
+  <span class="hljs-attr">panorama</span>: <span class="hljs-string">'https://photo-sphere-viewer.js.org/assets/sphere.jpg'</span>,
+  <span class="hljs-attr">container</span>: <span class="hljs-string">'photosphere'</span>,
+  <span class="hljs-attr">caption</span>: <span class="hljs-string">'Parc national du Mercantour &lt;b&gt;&amp;copy; Damien Sorel&lt;/b&gt;'</span>,
+  <span class="hljs-attr">loadingImg</span>: <span class="hljs-string">'https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif'</span>,
+  <span class="hljs-attr">navbar</span>: <span class="hljs-string">'autorotate zoom download caption fullscreen'</span>,
+  <span class="hljs-attr">defaultLat</span>: <span class="hljs-number">0.3</span>,
+  <span class="hljs-attr">mousewheel</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">touchmoveTwoFingers</span>: <span class="hljs-literal">true</span>,
+});</pre>
+              <pre class="tCont HTML hljs"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"photosphere"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+              <pre class="tCont CSS hljs"><span class="hljs-selector-tag">html</span>, <span class="hljs-selector-tag">body</span>, <span class="hljs-selector-id">#photosphere</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+}</pre>
               <div class="tCont result active" id="result">
-              <iframe src="./saved_resource(1).html" frameborder="0" sandbox="allow-forms allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-downloads allow-modals allow-popups" allow="midi; geolocation; microphone; camera; display-capture; encrypted-media;"></iframe></div>
+              <iframe src="./saved_resource(3).html" frameborder="0" sandbox="allow-forms allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-downloads allow-modals allow-popups" allow="midi; geolocation; microphone; camera; display-capture; encrypted-media;"></iframe></div>
+              <div class="tCont resources" id="resources">
+                <h3>External resources loaded into this fiddle:</h3>
+                <ul>
+                    <li><a href="https://cdn.jsdelivr.net/npm/promise-polyfill@8.1.3/dist/polyfill.min.js" target="_blank">polyfill.min.js</a></li>
+                    <li><a href="https://cdn.jsdelivr.net/npm/uevent@2.0.0/browser.js" target="_blank">browser.js</a></li>
+                    <li><a href="https://cdn.jsdelivr.net/npm/three@0.115.0/build/three.min.js" target="_blank">three.min.js</a></li>
+                    <li><a href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.js" target="_blank">photo-sphere-viewer.js</a></li>
+                    <li><a href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.css" target="_blank">photo-sphere-viewer.css</a></li>
+                </ul>
+              </div>
         </div>
     </div>
     
