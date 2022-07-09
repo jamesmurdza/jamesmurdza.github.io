@@ -1,3 +1,6 @@
 [submodule "copernicator"]
 	path = copernicator
 	url = https://github.com/jamesmurdza/copernicator.git
+[submodule "theofflinegame"]
+	path = theofflinegame
+	url = https://github.com/jamesmurdza/theofflinegame.git
