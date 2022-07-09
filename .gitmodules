@@ -1,0 +1,3 @@
+[submodule "copernicator"]
+	path = copernicator
+	url = https://github.com/jamesmurdza/copernicator.git
