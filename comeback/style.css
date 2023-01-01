@@ -1,0 +1,137 @@
+		body
+		{
+			margin: 0px;
+			background: url("Background Color.png");
+		}
+
+		#wrapper
+		{
+			background: bottom no-repeat url("Background.png");
+			background-position: bottom left;
+			background-size: 320px;
+			padding: 10px;
+		}
+		
+		#wrapper.favorites
+		{ 
+			background: bottom no-repeat url("Favorites Background.png");
+            background-size: 320px;
+		 }
+		
+		.pwrapper
+		{
+			padding-bottom:2em;
+		}
+		
+		#wrapper.favorites div:last-child span
+		{ 
+		margin-bottom: 25px;
+		}
+
+		#wrapper span
+		{
+			display: block;
+			position:relative;
+			padding:15px;
+			margin:0em 0 0em;
+			font: 16px "Times New Roman";
+			color: #000;
+			-webkit-border-radius:10px;
+			-moz-border-radius:10px;
+			border-radius:10px; text-shadow: #fefefe 0 0 10px;
+			z-index: 0;
+			width: 250px;
+			}
+
+		#wrapper span.left
+		{
+			background:-webkit-gradient(linear, 0 0, 0 100%, from(#ffdc00), to(#ff9700));
+		}
+
+		#wrapper span.right
+		{
+			background:-webkit-gradient(linear, 0 0, 0 100%, from(#ff8975), to(#ff3111));
+		}
+
+		/* creates triangle */
+		#wrapper span:after {
+			content:"";
+			position:absolute;
+			bottom:-15px; /* value = - border-top-width - border-bottom-width */
+			border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
+			border-style:solid;
+			/* reduce the damage in FF3.0 */
+			display:block; 
+			width:0;
+		}
+
+		#wrapper span.left:after {
+			left:50px; /* controls horizontal position */
+			border-color:#ff9700 transparent;
+		}
+
+		#wrapper span.right:after {
+			right:50px; /* controls horizontal position */
+			border-color:#ff3111 transparent;
+		}
+		
+		#pusher {
+			width: 100%;
+			height:0px;
+		}
+		
+		#cloud {
+			background: url("Cloud.png") no-repeat center;
+			background-size: 200px;
+			width: 300px;
+			height: 110px;
+			margin-bottom: 20px;
+			margin-top:  10px;
+			display: none;
+		}
+		
+		.star, .starred {
+		background: url("Star.png") no-repeat 7px;
+		background-size: 25px;
+		width: 35px;
+/*		border: 1px solid black;*/
+		height: 45px;
+		float: right;
+		opacity: 0.5;
+		margin: -15px -45px -25px -10px;
+		display: block;
+		z-index: 10;
+		}
+		
+		.starred { 
+		opacity: 1.0;
+		background: url("StarGold.png") no-repeat 7px;
+        background-size: 25px;
+		 }
+		 
+		 #starButton {
+		 padding: 5px 10px 0px 10px;
+		 background: url("starButton.png") no-repeat center bottom;
+		 background-size: 35px;
+		 width: 35px;
+		 height: 35px;
+  		float: right;
+		right:0px;
+  		position: absolute;
+  		margin-top: -34px;
+		 }
+		 
+		 #starButton.selected {
+		 background: url("starButtonGold.png") no-repeat center bottom;
+         width: 35px;
+         height: 35px;
+         background-size: 35px;
+		 }
+		 
+		 .instructions {
+		 background: #ffffff;
+		 margin-bottom: 300px;
+		 margin-top: -300px;
+		 padding: 10px;
+		-webkit-border-radius:10px;
+		 }
