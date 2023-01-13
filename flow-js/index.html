@@ -1,0 +1,142 @@
+<script src="raphael.min.js"></script>
+<script src="flowchart.min.js"></script>
+<script src="esprima.js"></script>
+<script src="escodegen.browser.js"></script>
+
+<style>
+textarea {
+  width: 200px;
+  height: 300px;
+  margin: 50px 100px;
+}
+textarea, #diagram {
+  float: left;
+}
+</style>
+
+<textarea id="editor">
+for (let i = 0; i < 5; i++) {
+console.log(i);
+}
+for (let i = 0; i < 5; i++) {
+console.log(i);
+}
+</textarea>
+<div id="diagram"></div>
+
+<script>
+let diagram = null;
+let diagramDiv = document.getElementById("diagram");
+let editorDiv = document.getElementById("editor");
+
+let id = 0;
+function op() {
+  return "op" + ++id;
+}
+
+let colorId = 0;
+function color() {
+  let colors = ["Green", "Blue", "Orange", "Purple"];
+  return colors[++colorId % colors.length];
+}
+
+function operations(scripts) {
+  let front = null;
+  let back = null;
+  let strokes = [];
+  for (script of scripts) {
+    ({front: opFront, back: opBack, strokes: opStrokes} = operation(script));
+    strokes.push(...opStrokes);
+    if (back) {
+      strokes.push(`${back}->${opFront}`);
+    }
+    front = front || opFront;
+    back = opBack;
+  }
+  return {front, back, strokes};
+}
+
+function operation(script) {
+
+  let generate = escodegen.generate;
+
+  if (script.type == "ForStatement") {
+  // This is where the magic happens:
+    let insideScript = script.body;
+
+    let init = op();
+    ({front: insideFront, back: insideBack, strokes: insideStrokes} = operations(insideScript.body));
+    let update = op();
+    let cond = op();
+    let front = init;
+    let back = cond+"(no)";
+
+    let aColor = color();
+    console.log(aColor);
+
+    let strokes = [
+      `${init}=>operation: ${generate(script.init)}`,
+      `${update}=>operation: ${generate(script.update)}`,
+      `${cond}=>condition: ${generate(script.test)}`,
+      ...insideStrokes,
+      `${init}->${cond}`,
+      `${init}@>${cond}({"stroke":"${aColor}"})`,
+      ...(insideFront ? [`${cond}(yes)->${insideFront}`,`${insideBack}(right)->${update}`, `${cond}@>${insideFront}({"stroke":"${aColor}"})`, `${insideBack}@>${update}({"stroke":"${aColor}"})`]
+      : [`${cond}(yes)->${update}`, `${cond}@>${update}({"stroke":"${aColor}"})`]),
+      `${update}(right)->${cond}`,
+      `${update}@>${cond}({"stroke":"${aColor}"})`
+    ];
+
+    return { front, back, strokes };
+  }
+
+  let front = op();
+  let back = front;
+  let strokes = [`${front}=>operation: ${generate(script)}`];
+  return {front, back, strokes};
+}
+
+function updateDiagram(parsed) {
+  id = 0;
+  diagramDiv.innerHTML = "";
+
+  let chart = [];
+  let first = null;
+  let last = "st";
+  for (node of parsed.body) {
+    ({ front, back, strokes } = operation(node));
+    chart.push(`${last}->${front}`);
+    chart.push(...strokes);
+    first = first || front;
+    last = back;
+  }
+
+  chart.push(`${last}->e`)
+
+chart = [
+    `st=>start`,
+    `e=>end`,
+    ...chart
+  ];
+
+// Well, this seems to stop flowchart.js from flipping out.
+let fixedChart = [
+...chart.filter(str=>str.includes("=>")),
+...chart.filter(str=>!str.includes("=>"))
+];
+
+  console.log(fixedChart.join("\n"));
+  diagram = flowchart.parse(fixedChart.join("\n"));
+
+  diagram.drawSVG(diagramDiv);
+}
+
+function onChange(e) {
+  let code = editorDiv.value;
+  let parsed = esprima.parse(code, { sourceType: 'script' });
+  updateDiagram(parsed);
+}
+editorDiv.addEventListener('input', onChange, false);
+onChange();
+
+</script>
