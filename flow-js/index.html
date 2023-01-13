@@ -4,25 +4,68 @@
 <script src="escodegen.browser.js"></script>
 
 <style>
+body {
+  margin: 0px;
+  padding: 20px;
+}
+.col1, .col2 {
+  width: 50%;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+}
 textarea {
-  width: 200px;
-  height: 300px;
-  margin: 50px 100px;
+  width: 100%;
+  color: #000;
+  background-color: #eee;
+  padding: 10px;
+
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  height: calc(100% - 30px);
 }
 textarea, #diagram {
-  float: left;
+  font-size: 16px;
+  font-family: monospace;
+}
+.col2 {
+  text-align: center;
+}
+#diagram {
+}
+svg {
+  max-width: 90%;
+  max-height: 100%;
+  height: auto;
+}
+.examples {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 30px;
+}
+.examples a {
+  color: #666;
 }
 </style>
 
+<div class="col1">
+<div class="examples">
+<a href="#" onClick="example(0)">Example 1</a>
+<a href="#" onClick="example(1)">Example 2</a>
+<a href="#" onClick="example(2)">Example 3</a>
+</div>
 <textarea id="editor">
-for (let i = 0; i < 5; i++) {
-console.log(i);
-}
-for (let i = 0; i < 5; i++) {
-console.log(i);
-}
 </textarea>
+</div>
+<div class="col2">
 <div id="diagram"></div>
+</div>
 
 <script>
 let diagram = null;
@@ -138,5 +181,31 @@ function onChange(e) {
 }
 editorDiv.addEventListener('input', onChange, false);
 onChange();
+
+function example(n) {
+let examples = [`
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+`,
+`
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+`,
+`
+for (let i = 0; i < 5; i++) {
+  for (let j = 0; j < 5; j++) {
+    console.log(j);
+  }
+}
+
+`];
+editorDiv.value = examples[n].trim();
+onChange();
+}
 
 </script>
